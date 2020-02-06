@@ -1,0 +1,494 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1806EBD223EB17BC00F7D6E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1806EBD123EB17BC00F7D6E7 /* AppDelegate.swift */; };
+		1806EBD423EB17BC00F7D6E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1806EBD323EB17BC00F7D6E7 /* ViewController.swift */; };
+		1806EBD723EB17BC00F7D6E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1806EBD523EB17BC00F7D6E7 /* Main.storyboard */; };
+		1806EBDA23EB17BC00F7D6E7 /* MyEasyFilter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1806EBD823EB17BC00F7D6E7 /* MyEasyFilter.xcdatamodeld */; };
+		1806EBDC23EB17BF00F7D6E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1806EBDB23EB17BF00F7D6E7 /* Assets.xcassets */; };
+		1806EBDF23EB17BF00F7D6E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1806EBDD23EB17BF00F7D6E7 /* LaunchScreen.storyboard */; };
+		1806EBED23EB23BC00F7D6E7 /* ApplyFilter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1806EBEC23EB23BC00F7D6E7 /* ApplyFilter.storyboard */; };
+		1806EBEF23EB247700F7D6E7 /* ApplyFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1806EBEE23EB247700F7D6E7 /* ApplyFilterViewController.swift */; };
+		1806EBF223EB2C3C00F7D6E7 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1806EBF123EB2C3C00F7D6E7 /* UIImage+Ext.swift */; };
+		1806EBF423EC293000F7D6E7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1806EBF323EC293000F7D6E7 /* Default-568h@2x.png */; };
+		1806EBF623EC7B3200F7D6E7 /* ApplyImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1806EBF523EC7B3200F7D6E7 /* ApplyImageView.swift */; };
+		1806EBF823EC7CD500F7D6E7 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1806EBF723EC7CD500F7D6E7 /* UIView+Ext.swift */; };
+		1806EBFA23EC7D8B00F7D6E7 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1806EBF923EC7D8B00F7D6E7 /* UIColor+Ext.swift */; };
+		7EF4F92AAA1A9B5D64831876 /* libPods-MyEasyFilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFF502E98694C4CF75D97BD /* libPods-MyEasyFilter.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1806EBCE23EB17BC00F7D6E7 /* MyEasyFilter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyEasyFilter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1806EBD123EB17BC00F7D6E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1806EBD323EB17BC00F7D6E7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1806EBD623EB17BC00F7D6E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1806EBD923EB17BC00F7D6E7 /* MyEasyFilter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyEasyFilter.xcdatamodel; sourceTree = "<group>"; };
+		1806EBDB23EB17BF00F7D6E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1806EBDE23EB17BF00F7D6E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1806EBE023EB17BF00F7D6E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1806EBEC23EB23BC00F7D6E7 /* ApplyFilter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ApplyFilter.storyboard; sourceTree = "<group>"; };
+		1806EBEE23EB247700F7D6E7 /* ApplyFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyFilterViewController.swift; sourceTree = "<group>"; };
+		1806EBF123EB2C3C00F7D6E7 /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
+		1806EBF323EC293000F7D6E7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		1806EBF523EC7B3200F7D6E7 /* ApplyImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyImageView.swift; sourceTree = "<group>"; };
+		1806EBF723EC7CD500F7D6E7 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		1806EBF923EC7D8B00F7D6E7 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		238E9069CD82FF470D66D3C8 /* Pods-MyEasyFilter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyEasyFilter.debug.xcconfig"; path = "Target Support Files/Pods-MyEasyFilter/Pods-MyEasyFilter.debug.xcconfig"; sourceTree = "<group>"; };
+		DBF4C59CE49835B7D9404BFB /* Pods-MyEasyFilter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyEasyFilter.release.xcconfig"; path = "Target Support Files/Pods-MyEasyFilter/Pods-MyEasyFilter.release.xcconfig"; sourceTree = "<group>"; };
+		FCFF502E98694C4CF75D97BD /* libPods-MyEasyFilter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyEasyFilter.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1806EBCB23EB17BC00F7D6E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EF4F92AAA1A9B5D64831876 /* libPods-MyEasyFilter.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1806EBC523EB17BC00F7D6E7 = {
+			isa = PBXGroup;
+			children = (
+				1806EBF323EC293000F7D6E7 /* Default-568h@2x.png */,
+				1806EBDD23EB17BF00F7D6E7 /* LaunchScreen.storyboard */,
+				1806EBD023EB17BC00F7D6E7 /* MyEasyFilter */,
+				1806EBCF23EB17BC00F7D6E7 /* Products */,
+				46456AFA6A6FAE9F2A7F042F /* Pods */,
+				AD3B8FD31CC1DF893CB147E7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1806EBCF23EB17BC00F7D6E7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1806EBCE23EB17BC00F7D6E7 /* MyEasyFilter.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1806EBD023EB17BC00F7D6E7 /* MyEasyFilter */ = {
+			isa = PBXGroup;
+			children = (
+				1806EBE623EB1C8500F7D6E7 /* _Main */,
+				1806EBE723EB1C9100F7D6E7 /* _ApplyFilter */,
+				1806EBE823EB1CC300F7D6E7 /* _Info */,
+				1806EBEA23EB1D2A00F7D6E7 /* _ShowSelectFilter */,
+				1806EBE923EB1CCD00F7D6E7 /* _Publish */,
+				1806EBF023EB2C0A00F7D6E7 /* EXTENTION */,
+				1806EBD123EB17BC00F7D6E7 /* AppDelegate.swift */,
+				1806EBDB23EB17BF00F7D6E7 /* Assets.xcassets */,
+				1806EBE023EB17BF00F7D6E7 /* Info.plist */,
+				1806EBD823EB17BC00F7D6E7 /* MyEasyFilter.xcdatamodeld */,
+			);
+			path = MyEasyFilter;
+			sourceTree = "<group>";
+		};
+		1806EBE623EB1C8500F7D6E7 /* _Main */ = {
+			isa = PBXGroup;
+			children = (
+				1806EBD523EB17BC00F7D6E7 /* Main.storyboard */,
+				1806EBD323EB17BC00F7D6E7 /* ViewController.swift */,
+			);
+			path = _Main;
+			sourceTree = "<group>";
+		};
+		1806EBE723EB1C9100F7D6E7 /* _ApplyFilter */ = {
+			isa = PBXGroup;
+			children = (
+				1806EBEC23EB23BC00F7D6E7 /* ApplyFilter.storyboard */,
+				1806EBEE23EB247700F7D6E7 /* ApplyFilterViewController.swift */,
+				1806EBF523EC7B3200F7D6E7 /* ApplyImageView.swift */,
+				1806EBEB23EB1D8900F7D6E7 /* XIB */,
+			);
+			path = _ApplyFilter;
+			sourceTree = "<group>";
+		};
+		1806EBE823EB1CC300F7D6E7 /* _Info */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = _Info;
+			sourceTree = "<group>";
+		};
+		1806EBE923EB1CCD00F7D6E7 /* _Publish */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = _Publish;
+			sourceTree = "<group>";
+		};
+		1806EBEA23EB1D2A00F7D6E7 /* _ShowSelectFilter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = _ShowSelectFilter;
+			sourceTree = "<group>";
+		};
+		1806EBEB23EB1D8900F7D6E7 /* XIB */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = XIB;
+			sourceTree = "<group>";
+		};
+		1806EBF023EB2C0A00F7D6E7 /* EXTENTION */ = {
+			isa = PBXGroup;
+			children = (
+				1806EBF123EB2C3C00F7D6E7 /* UIImage+Ext.swift */,
+				1806EBF723EC7CD500F7D6E7 /* UIView+Ext.swift */,
+				1806EBF923EC7D8B00F7D6E7 /* UIColor+Ext.swift */,
+			);
+			path = EXTENTION;
+			sourceTree = "<group>";
+		};
+		46456AFA6A6FAE9F2A7F042F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				238E9069CD82FF470D66D3C8 /* Pods-MyEasyFilter.debug.xcconfig */,
+				DBF4C59CE49835B7D9404BFB /* Pods-MyEasyFilter.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AD3B8FD31CC1DF893CB147E7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FCFF502E98694C4CF75D97BD /* libPods-MyEasyFilter.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1806EBCD23EB17BC00F7D6E7 /* MyEasyFilter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1806EBE323EB17BF00F7D6E7 /* Build configuration list for PBXNativeTarget "MyEasyFilter" */;
+			buildPhases = (
+				56FCAE8FCAD764E26A90914E /* [CP] Check Pods Manifest.lock */,
+				1806EBCA23EB17BC00F7D6E7 /* Sources */,
+				1806EBCB23EB17BC00F7D6E7 /* Frameworks */,
+				1806EBCC23EB17BC00F7D6E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyEasyFilter;
+			productName = MyEasyFilter;
+			productReference = 1806EBCE23EB17BC00F7D6E7 /* MyEasyFilter.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1806EBC623EB17BC00F7D6E7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1030;
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = Nautilus;
+				TargetAttributes = {
+					1806EBCD23EB17BC00F7D6E7 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+				};
+			};
+			buildConfigurationList = 1806EBC923EB17BC00F7D6E7 /* Build configuration list for PBXProject "MyEasyFilter" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1806EBC523EB17BC00F7D6E7;
+			productRefGroup = 1806EBCF23EB17BC00F7D6E7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1806EBCD23EB17BC00F7D6E7 /* MyEasyFilter */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1806EBCC23EB17BC00F7D6E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1806EBDF23EB17BF00F7D6E7 /* LaunchScreen.storyboard in Resources */,
+				1806EBED23EB23BC00F7D6E7 /* ApplyFilter.storyboard in Resources */,
+				1806EBDC23EB17BF00F7D6E7 /* Assets.xcassets in Resources */,
+				1806EBF423EC293000F7D6E7 /* Default-568h@2x.png in Resources */,
+				1806EBD723EB17BC00F7D6E7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		56FCAE8FCAD764E26A90914E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyEasyFilter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1806EBCA23EB17BC00F7D6E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1806EBF223EB2C3C00F7D6E7 /* UIImage+Ext.swift in Sources */,
+				1806EBD423EB17BC00F7D6E7 /* ViewController.swift in Sources */,
+				1806EBEF23EB247700F7D6E7 /* ApplyFilterViewController.swift in Sources */,
+				1806EBF623EC7B3200F7D6E7 /* ApplyImageView.swift in Sources */,
+				1806EBF823EC7CD500F7D6E7 /* UIView+Ext.swift in Sources */,
+				1806EBFA23EC7D8B00F7D6E7 /* UIColor+Ext.swift in Sources */,
+				1806EBDA23EB17BC00F7D6E7 /* MyEasyFilter.xcdatamodeld in Sources */,
+				1806EBD223EB17BC00F7D6E7 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1806EBD523EB17BC00F7D6E7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1806EBD623EB17BC00F7D6E7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1806EBDD23EB17BF00F7D6E7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1806EBDE23EB17BF00F7D6E7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1806EBE123EB17BF00F7D6E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1806EBE223EB17BF00F7D6E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1806EBE423EB17BF00F7D6E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 238E9069CD82FF470D66D3C8 /* Pods-MyEasyFilter.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MTD927KX28;
+				INFOPLIST_FILE = MyEasyFilter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nautilus.MyEasyFilter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1806EBE523EB17BF00F7D6E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBF4C59CE49835B7D9404BFB /* Pods-MyEasyFilter.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MTD927KX28;
+				INFOPLIST_FILE = MyEasyFilter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nautilus.MyEasyFilter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1806EBC923EB17BC00F7D6E7 /* Build configuration list for PBXProject "MyEasyFilter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1806EBE123EB17BF00F7D6E7 /* Debug */,
+				1806EBE223EB17BF00F7D6E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1806EBE323EB17BF00F7D6E7 /* Build configuration list for PBXNativeTarget "MyEasyFilter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1806EBE423EB17BF00F7D6E7 /* Debug */,
+				1806EBE523EB17BF00F7D6E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1806EBD823EB17BC00F7D6E7 /* MyEasyFilter.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1806EBD923EB17BC00F7D6E7 /* MyEasyFilter.xcdatamodel */,
+			);
+			currentVersion = 1806EBD923EB17BC00F7D6E7 /* MyEasyFilter.xcdatamodel */;
+			path = MyEasyFilter.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 1806EBC623EB17BC00F7D6E7 /* Project object */;
+}

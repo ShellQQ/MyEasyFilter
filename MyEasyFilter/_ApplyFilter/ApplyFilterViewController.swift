@@ -17,6 +17,12 @@ class ApplyFilterViewController: UIViewController, GADBannerViewDelegate{
         return view
     }()
     
+    lazy var gapView: UIView = {
+        let view = UIView()
+        
+        return view
+    }()
+    
     lazy var filterDetailView: UIView = {
         let view = FilterDetailView()
 
@@ -73,7 +79,8 @@ class ApplyFilterViewController: UIViewController, GADBannerViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.addGradientLayer()
+        // 主畫面加上漸層背景圖層
+        view.addGradientLayer(frame: view.frame)
         if let layer = view.layer.sublayers?[0] as? CAGradientLayer {
             layer.colors = [UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1).cgColor,
                         UIColor(red: 0.25, green: 0.25, blue: 0.25, alpha: 1).cgColor,
@@ -85,7 +92,7 @@ class ApplyFilterViewController: UIViewController, GADBannerViewDelegate{
         //   - filterDetailView :
         //   - bannerView : 橫幅 banner 廣告，
         // -----------------------------------------------------------------------------------
-        stackView = UIStackView(arrangedSubviews: [applyImageView, filterDetailView, bannerView])
+        stackView = UIStackView(arrangedSubviews: [applyImageView, gapView, filterDetailView, bannerView])
         stackView.spacing = 0
         
         stackView.axis = .vertical
@@ -99,29 +106,13 @@ class ApplyFilterViewController: UIViewController, GADBannerViewDelegate{
         stackView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         stackView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        
+
         applyImageView.widthAnchor.constraint(equalTo: stackView.widthAnchor, constant: -40).isActive = true
-        filterDetailView.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
         
+        gapView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        filterDetailView.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
         bannerView.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
         bannerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        // 測試手勢點擊後，尺寸縮小
-        //let tap = UITapGestureRecognizer(target: self, action: #selector(setConstraint))
-        //filterDetailView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(setConstraint)))
-    }
-    
-    
-    // 測試手勢點擊後，尺寸縮小
-    @objc func setConstraint(_ sender: UITapGestureRecognizer) {
-        //let view = sender.view
-        
-        UIView.animate(withDuration: 0.5) {
-            //view?.heightAnchor.constraint(equalTo: self.stackView.heightAnchor, multiplier: 1/8).isActive = true
-            //sender.heightAnchor.constraint(equalTo: self.stackView.heightAnchor, multiplier: 1/8).isActive = true
-            self.detailHeightConstraint.constant += 20
-            self.stackView.layoutIfNeeded()
-        }
     }
 
     func createTestView() -> UIView{

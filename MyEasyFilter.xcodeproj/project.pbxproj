@@ -109,8 +109,8 @@
 			children = (
 				1806EBEC23EB23BC00F7D6E7 /* ApplyFilter.storyboard */,
 				1806EBEE23EB247700F7D6E7 /* ApplyFilterViewController.swift */,
-				1806EBFB23ED594400F7D6E7 /* FilterDetailView.swift */,
 				1806EBF523EC7B3200F7D6E7 /* ApplyImageView.swift */,
+				1806EBFB23ED594400F7D6E7 /* FilterDetailView.swift */,
 				1806EBEB23EB1D8900F7D6E7 /* XIB */,
 			);
 			path = _ApplyFilter;

@@ -26,11 +26,12 @@ extension UIView {
         self.clipsToBounds = true
     }
     
-    func addGradientLayer(startPoint: CGPoint = CGPoint(x: 0.5, y: 0.5)) {
+    func addGradientLayer(frame: CGRect, startPoint: CGPoint = CGPoint(x: 0.5, y: 0.5)) {
         let layer = CAGradientLayer()
         
         layer.type = .radial
-        layer.frame = self.frame
+        //layer.frame = self.frame
+        layer.frame = frame
         layer.colors = [UIColor(red: 0.35, green: 0.35, blue: 0.35, alpha: 1).cgColor,
                         UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1).cgColor,
                         UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1).cgColor]

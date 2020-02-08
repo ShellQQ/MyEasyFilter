@@ -11,7 +11,7 @@ import UIKit
 class ApplyImageView: UIView {
     
     lazy var topView: UIView = {
-        let view = createTestView()
+        let view = UIView()
     
         return view
     }()
@@ -24,19 +24,19 @@ class ApplyImageView: UIView {
     }()
     
     lazy var bottomView: UIView = {
-        let view = createTestView()
+        let view = UIView()
         return view
     }()
     
     var stackView: UIStackView!
     
-    var caLayer: CAGradientLayer!
+    let fullScrrenSize = UIScreen.main.bounds.size
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.roundAllCorners(cornerRadius: 30)
-        self.addGradientLayer()
+        self.addGradientLayer(frame: CGRect(x: 0, y: 0, width: fullScrrenSize.width, height: fullScrrenSize.height - 280))
         
         stackView = UIStackView(arrangedSubviews: [topView, centerView, bottomView])
         //stackView = UIStackView()
@@ -67,15 +67,17 @@ class ApplyImageView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        //self.caLayer.frame = stackView.bounds
-        //if let layer = self.layer.sublayers?[0] as? CAGradientLayer {
-            //layer.frame = self.bounds
-       // }
-        
-    }
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//
+//        //self.caLayer.frame = stackView.bounds
+//        if let layer = self.layer.sublayers?[0] as? CAGradientLayer {
+//            UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
+//                layer.frame = self.bounds
+//            }, completion: nil)
+//        }
+//
+//    }
     
     func createTestView() -> UIView{
         let view = UIView()

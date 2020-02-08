@@ -20,6 +20,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         present(imagePicker, animated: true, completion: nil)
         print("open album")
     }
+    
     @IBAction func openCamera(_ sender: UIButton) {
         // 檢查裝置是否具有拍照功能
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -33,9 +34,22 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             show(imagePicker, sender: self)
         }
     }
+    
+    // 將 Status Bar 修改為 light
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        // 主畫面加上漸層背景圖層
+//        view.addGradientLayer(frame: view.frame)
+//        if let layer = view.layer.sublayers?[0] as? CAGradientLayer {
+//            layer.colors = [UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1).cgColor,
+//                            UIColor(red: 0.25, green: 0.25, blue: 0.25, alpha: 1).cgColor,
+//                            UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1).cgColor]
+//        }
     }
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

@@ -18,18 +18,18 @@ class ApplyFilterViewController: UIViewController, GADBannerViewDelegate{
     }()
     
     lazy var filterDetailView: UIView = {
-        let view = self.createTestView()
-        
+        let view = FilterDetailView()
+
         // 設定 filterDetailView 的 Constraint
-        detailHeightConstraint = NSLayoutConstraint(item: view,
+        /*detailHeightConstraint = NSLayoutConstraint(item: view,
                                                     attribute: .height,
                                                     relatedBy: .equal,
                                                     toItem: self.stackView,
                                                     attribute: .height,
                                                     multiplier: 0,
-                                                    constant: 100)
-        NSLayoutConstraint.activate([detailHeightConstraint])
-        
+                                                    constant: 320)
+        NSLayoutConstraint.activate([detailHeightConstraint])*/
+
         return view
     }()
     
@@ -73,10 +73,12 @@ class ApplyFilterViewController: UIViewController, GADBannerViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let layer = view.addGradientLayer()
-        layer.colors = [UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1).cgColor,
+        view.addGradientLayer()
+        if let layer = view.layer.sublayers?[0] as? CAGradientLayer {
+            layer.colors = [UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1).cgColor,
                         UIColor(red: 0.25, green: 0.25, blue: 0.25, alpha: 1).cgColor,
                         UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1).cgColor]
+        }
         // -----------------------------------------------------------------------------------
         // stackView 包含3個區塊
         //   - applyImageView :
@@ -106,7 +108,7 @@ class ApplyFilterViewController: UIViewController, GADBannerViewDelegate{
         
         // 測試手勢點擊後，尺寸縮小
         //let tap = UITapGestureRecognizer(target: self, action: #selector(setConstraint))
-        filterDetailView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(setConstraint)))
+        //filterDetailView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(setConstraint)))
     }
     
     

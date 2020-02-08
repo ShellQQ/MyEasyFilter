@@ -12,6 +12,7 @@ class ApplyImageView: UIView {
     
     lazy var topView: UIView = {
         let view = createTestView()
+    
         return view
     }()
     
@@ -35,19 +36,20 @@ class ApplyImageView: UIView {
         super.init(frame: frame)
         
         self.roundAllCorners(cornerRadius: 30)
+        self.addGradientLayer()
         
-        //stackView = UIStackView(arrangedSubviews: [topView, centerView, bottomView])
-        stackView = UIStackView()
+        stackView = UIStackView(arrangedSubviews: [topView, centerView, bottomView])
+        //stackView = UIStackView()
         stackView.spacing = 0
         
         stackView.axis = .vertical
         stackView.distribution = .fill
         
-        caLayer = stackView.addGradientLayer()
+        //caLayer = stackView.addGradientLayer()
 
-        stackView.addArrangedSubview(topView)
-        stackView.addArrangedSubview(centerView)
-        stackView.addArrangedSubview(bottomView)
+        //stackView.addArrangedSubview(topView)
+        //stackView.addArrangedSubview(centerView)
+        //stackView.addArrangedSubview(bottomView)
         
         self.addSubview(stackView)
 
@@ -67,13 +69,17 @@ class ApplyImageView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+
+        //self.caLayer.frame = stackView.bounds
+        //if let layer = self.layer.sublayers?[0] as? CAGradientLayer {
+            //layer.frame = self.bounds
+       // }
         
-        self.caLayer.frame = stackView.bounds
     }
     
     func createTestView() -> UIView{
         let view = UIView()
-        //view.backgroundColor = randomColor()
+        view.backgroundColor = randomColor()
         
         return view
     }

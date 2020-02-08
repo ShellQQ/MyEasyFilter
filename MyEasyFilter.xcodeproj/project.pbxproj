@@ -20,6 +20,7 @@
 		1806EBF623EC7B3200F7D6E7 /* ApplyImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1806EBF523EC7B3200F7D6E7 /* ApplyImageView.swift */; };
 		1806EBF823EC7CD500F7D6E7 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1806EBF723EC7CD500F7D6E7 /* UIView+Ext.swift */; };
 		1806EBFA23EC7D8B00F7D6E7 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1806EBF923EC7D8B00F7D6E7 /* UIColor+Ext.swift */; };
+		1806EBFC23ED594400F7D6E7 /* FilterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1806EBFB23ED594400F7D6E7 /* FilterDetailView.swift */; };
 		7EF4F92AAA1A9B5D64831876 /* libPods-MyEasyFilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFF502E98694C4CF75D97BD /* libPods-MyEasyFilter.a */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		1806EBF523EC7B3200F7D6E7 /* ApplyImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyImageView.swift; sourceTree = "<group>"; };
 		1806EBF723EC7CD500F7D6E7 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		1806EBF923EC7D8B00F7D6E7 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		1806EBFB23ED594400F7D6E7 /* FilterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDetailView.swift; sourceTree = "<group>"; };
 		238E9069CD82FF470D66D3C8 /* Pods-MyEasyFilter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyEasyFilter.debug.xcconfig"; path = "Target Support Files/Pods-MyEasyFilter/Pods-MyEasyFilter.debug.xcconfig"; sourceTree = "<group>"; };
 		DBF4C59CE49835B7D9404BFB /* Pods-MyEasyFilter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyEasyFilter.release.xcconfig"; path = "Target Support Files/Pods-MyEasyFilter/Pods-MyEasyFilter.release.xcconfig"; sourceTree = "<group>"; };
 		FCFF502E98694C4CF75D97BD /* libPods-MyEasyFilter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyEasyFilter.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,7 +86,7 @@
 				1806EBE823EB1CC300F7D6E7 /* _Info */,
 				1806EBEA23EB1D2A00F7D6E7 /* _ShowSelectFilter */,
 				1806EBE923EB1CCD00F7D6E7 /* _Publish */,
-				1806EBF023EB2C0A00F7D6E7 /* EXTENTION */,
+				1806EBF023EB2C0A00F7D6E7 /* EXTENSION */,
 				1806EBD123EB17BC00F7D6E7 /* AppDelegate.swift */,
 				1806EBDB23EB17BF00F7D6E7 /* Assets.xcassets */,
 				1806EBE023EB17BF00F7D6E7 /* Info.plist */,
@@ -107,6 +109,7 @@
 			children = (
 				1806EBEC23EB23BC00F7D6E7 /* ApplyFilter.storyboard */,
 				1806EBEE23EB247700F7D6E7 /* ApplyFilterViewController.swift */,
+				1806EBFB23ED594400F7D6E7 /* FilterDetailView.swift */,
 				1806EBF523EC7B3200F7D6E7 /* ApplyImageView.swift */,
 				1806EBEB23EB1D8900F7D6E7 /* XIB */,
 			);
@@ -141,14 +144,14 @@
 			path = XIB;
 			sourceTree = "<group>";
 		};
-		1806EBF023EB2C0A00F7D6E7 /* EXTENTION */ = {
+		1806EBF023EB2C0A00F7D6E7 /* EXTENSION */ = {
 			isa = PBXGroup;
 			children = (
 				1806EBF123EB2C3C00F7D6E7 /* UIImage+Ext.swift */,
 				1806EBF723EC7CD500F7D6E7 /* UIView+Ext.swift */,
 				1806EBF923EC7D8B00F7D6E7 /* UIColor+Ext.swift */,
 			);
-			path = EXTENTION;
+			path = EXTENSION;
 			sourceTree = "<group>";
 		};
 		46456AFA6A6FAE9F2A7F042F /* Pods */ = {
@@ -267,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1806EBFC23ED594400F7D6E7 /* FilterDetailView.swift in Sources */,
 				1806EBF223EB2C3C00F7D6E7 /* UIImage+Ext.swift in Sources */,
 				1806EBD423EB17BC00F7D6E7 /* ViewController.swift in Sources */,
 				1806EBEF23EB247700F7D6E7 /* ApplyFilterViewController.swift in Sources */,

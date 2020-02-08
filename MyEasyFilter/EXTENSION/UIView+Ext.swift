@@ -26,7 +26,7 @@ extension UIView {
         self.clipsToBounds = true
     }
     
-    func addGradientLayer() -> CAGradientLayer {
+    func addGradientLayer(startPoint: CGPoint = CGPoint(x: 0.5, y: 0.5)) {
         let layer = CAGradientLayer()
         
         layer.type = .radial
@@ -35,7 +35,7 @@ extension UIView {
                         UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1).cgColor,
                         UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1).cgColor]
         //layer.locations = [0, 0.75, 1]
-        layer.startPoint = CGPoint(x: 0.5, y: 0.5)
+        layer.startPoint = startPoint
         layer.endPoint = CGPoint(x: 1.5 , y: 1)
         /*if self.frame.height >= self.frame.width {
          layer.endPoint = CGPoint(x: self.frame.height / self.frame.width , y: 1)
@@ -45,8 +45,6 @@ extension UIView {
          }*/
         
         self.layer.addSublayer(layer)
-        
-        return layer
     }
     
     func viewController() -> UIViewController? {

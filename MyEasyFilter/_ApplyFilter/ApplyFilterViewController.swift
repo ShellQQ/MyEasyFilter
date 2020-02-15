@@ -11,8 +11,18 @@ import GoogleMobileAds
 
 class ApplyFilterViewController: UIViewController, GADBannerViewDelegate{
     
+    var originalImage: UIImage?
+    
+    var stackView: UIStackView!
+    //var detailHeightConstraint: NSLayoutConstraint!
+    
     lazy var applyImageView: UIView = {
         let view = ApplyImageView()
+        
+        view.delegate = self
+        if let image = originalImage {
+            view.image = image
+        }
         
         return view
     }()
@@ -67,9 +77,7 @@ class ApplyFilterViewController: UIViewController, GADBannerViewDelegate{
         return adView
     }()
     
-    var stackView: UIStackView!
     
-    var detailHeightConstraint: NSLayoutConstraint!
     
     // 將 Status Bar 修改為 light
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -113,6 +121,8 @@ class ApplyFilterViewController: UIViewController, GADBannerViewDelegate{
         filterDetailView.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
         bannerView.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
         bannerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        print("view did load \(stackView.frame)")
     }
 
     func createTestView() -> UIView{
@@ -172,4 +182,26 @@ class ApplyFilterViewController: UIViewController, GADBannerViewDelegate{
     func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
         print("adViewWillLeaveApplication")
     }
+}
+
+extension ApplyFilterViewController: ApplyImageViewDelegate {
+    func backToMain() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func goPublishPage() {
+        let nextStoryboard = UIStoryboard(name: "Publish", bundle: nil)
+        if let nextController = nextStoryboard.instantiateViewController(withIdentifier: "Publish") as? PublishViewController {
+            self.present(nextController, animated: true, completion: nil)
+        }
+    }
+    
+    func goFilterListPage() {
+        let nextStoryboard = UIStoryboard(name: "ShowSelectFilter", bundle: nil)
+        if let nextController = nextStoryboard.instantiateViewController(withIdentifier: "ShowSelectFilter") as? ShowSelectFilterViewController {
+            self.present(nextController, animated: true, completion: nil)
+        }
+    }
+    
+    
 }

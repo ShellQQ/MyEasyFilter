@@ -78,7 +78,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     func presentApplyFilterStoryboard(image: UIImage) {
         let nextStoryboard = UIStoryboard(name: "ApplyFilter", bundle: nil)
         if let nextController = nextStoryboard.instantiateViewController(withIdentifier: "ApplyFilter") as? ApplyFilterViewController {
-            //nextController.originalImage = image
+            nextController.originalImage = image
             // 顯示下一個畫面的兩種方式
             //navigationController?.pushViewController(nextController, animated: true)
             self.present(nextController, animated: true, completion: nil)

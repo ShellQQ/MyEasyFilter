@@ -28,6 +28,8 @@ class FilterDetailView: UIView {
         //view.backgroundColor = randomColor()
         view.roundCorners(cornerRadius: 30, corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner])
         view.layer.addSublayer(gradientLayer(layerHeight: 110))
+        
+        view.isHidden = true
 
         return view
     }()
@@ -37,6 +39,8 @@ class FilterDetailView: UIView {
         //view.backgroundColor = randomColor()
         view.roundCorners(cornerRadius: 30, corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner])
         view.layer.addSublayer(gradientLayer(layerHeight: 110))
+        
+        view.isHidden = true
         
         return view
     }()

@@ -15,4 +15,23 @@ extension UIColor {
         
         self.init(red: redValue, green: greenValue, blue: blueValue, alpha: alpha)
     }
+    
+    // 產生純色圖片
+    func asImage(size: CGSize) -> UIImage? {
+        var resultImage: UIImage? = nil
+        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, UIScreen.main.scale)
+        
+        guard let context = UIGraphicsGetCurrentContext() else {
+            
+            return resultImage
+        }
+        
+        context.setFillColor(self.cgColor)
+        context.fill(rect)
+        resultImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return resultImage
+    }
 }

@@ -10,27 +10,133 @@ import UIKit
 
 class ApplyImageView: UIView {
     
-    lazy var topView: UIView = {
-        let view = UIView()
-    
-        return view
-    }()
-    
-    lazy var centerView: UIImageView = {
-        let view = UIImageView()
-        view.backgroundColor = randomColor()
-    
-        return view
-    }()
-    
-    lazy var bottomView: UIView = {
-        let view = UIView()
-        return view
-    }()
-    
     var stackView: UIStackView!
     
     let fullScrrenSize = UIScreen.main.bounds.size
+    
+    weak var delegate: ApplyImageViewDelegate?
+    
+    var image: UIImage = UIImage() {
+        didSet {
+            print("image size \(image.size)")
+            let size = image.size
+            
+            if size.height > size.width {
+                // 圖片依照原比例顯示，可能會超出Image view尺寸
+                centerView.contentMode = .scaleAspectFill
+            }
+            else {
+                // 在Image view尺寸內，圖片依照原比例顯示
+                centerView.contentMode = .scaleAspectFit
+            }
+            
+            centerView.image = image
+        }
+    }
+    
+    // -- TOP VIEW -----------------------------------------------------------------------
+    // -----------------------------------------------------------------------------------
+    lazy var topView: UIView = {
+        let view = UIView()
+        
+        view.addSubview(backButton)
+        view.addSubview(publishButton)
+        
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
+        backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
+        
+        publishButton.translatesAutoresizingMaskIntoConstraints = false
+        publishButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
+        publishButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15).isActive = true
+        
+        let labelStackView = UIStackView(arrangedSubviews: [filterLabel, categoryLabel])
+        labelStackView.spacing = 0
+        labelStackView.axis = .vertical
+        labelStackView.alignment = .center
+        
+        view.addSubview(labelStackView)
+        
+        labelStackView.translatesAutoresizingMaskIntoConstraints = false
+        labelStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
+        labelStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    
+        return view
+    }()
+    
+    lazy var backButton: UIButton = {
+        let button = TemplateButton(imageName: "left-arrow")
+        
+        button.addTarget(self, action: #selector(backButtonTap(_:)), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    lazy var publishButton: UIButton = {
+        let button = TemplateButton(imageName: "publish")
+        
+        button.addTarget(self, action: #selector(publishButtonTap(_:)), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    lazy var filterLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.font = UIFont(name: "Kailasa", size: 18)
+        
+        label.text = "Filter Name"
+        
+        return label
+    }()
+    
+    lazy var categoryLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor(red: 0.4, green: 0.4, blue: 0.3, alpha: 1)
+        label.font = UIFont(name: "Kailasa", size: 10)
+        
+        label.text = "Category Name"
+        
+        return label
+    }()
+    
+    // -- CENTER VIEW --------------------------------------------------------------------
+    // -----------------------------------------------------------------------------------
+    lazy var centerView: UIImageView = {
+        let view = UIImageView()
+
+        view.clipsToBounds = true
+        //view.backgroundColor = randomColor()
+    
+        return view
+    }()
+    
+    // -- BOTTOM VIEW --------------------------------------------------------------------
+    // -----------------------------------------------------------------------------------
+    lazy var bottomView: UIView = {
+        let view = UIView()
+        
+        view.addSubview(filterListButton)
+        
+        filterListButton.translatesAutoresizingMaskIntoConstraints = false
+        filterListButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10).isActive = true
+        filterListButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15).isActive = true
+        
+        return view
+    }()
+    
+    lazy var filterListButton: UIButton = {
+        let button = TemplateButton(imageName: "list")
+        
+        button.addTarget(self, action: #selector(filterListButtonTap(_:)), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    // -----------------------------------------------------------------------------------
+    // -----------------------------------------------------------------------------------
+    
+    
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -91,6 +197,18 @@ class ApplyImageView: UIView {
         
         return color
     }
+    
+    @objc func backButtonTap(_ button: UIButton) {
+        delegate?.backToMain()
+    }
+    
+    @objc func publishButtonTap(_ button: UIButton) {
+        delegate?.goPublishPage()
+    }
+    
+    @objc func filterListButtonTap(_ button: UIButton) {
+        delegate?.goFilterListPage()
+    }
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -99,4 +217,10 @@ class ApplyImageView: UIView {
     }
     */
 
+}
+
+protocol ApplyImageViewDelegate: class{
+    func backToMain()
+    func goPublishPage()
+    func goFilterListPage()
 }

@@ -9,14 +9,14 @@
 import UIKit
 import GoogleMobileAds
 
-class ApplyFilterViewController: UIViewController, GADBannerViewDelegate{
+class ApplyFilterViewController: UIViewController{
     
     var originalImage: UIImage?
     
     var stackView: UIStackView!
     //var detailHeightConstraint: NSLayoutConstraint!
     
-    lazy var applyImageView: UIView = {
+    lazy var applyImageView: ApplyImageView = {
         let view = ApplyImageView()
         
         view.delegate = self
@@ -33,7 +33,7 @@ class ApplyFilterViewController: UIViewController, GADBannerViewDelegate{
         return view
     }()
     
-    lazy var filterDetailView: UIView = {
+    lazy var filterDetailView: FilterDetailView = {
         let view = FilterDetailView()
 
         // 設定 filterDetailView 的 Constraint
@@ -76,9 +76,7 @@ class ApplyFilterViewController: UIViewController, GADBannerViewDelegate{
 
         return adView
     }()
-    
-    
-    
+
     // 將 Status Bar 修改為 light
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return UIStatusBarStyle.lightContent
@@ -124,13 +122,6 @@ class ApplyFilterViewController: UIViewController, GADBannerViewDelegate{
         
         print("view did load \(stackView.frame)")
     }
-
-    func createTestView() -> UIView{
-        let view = UIView()
-        view.backgroundColor = randomColor()
-        
-        return view
-    }
     
     func randomColor() -> UIColor {
         let color = UIColor(red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: 1)
@@ -147,10 +138,13 @@ class ApplyFilterViewController: UIViewController, GADBannerViewDelegate{
         // Pass the selected object to the new view controller.
     }
     */
+}
 
-    // -----------------------------------------------------------------------------------
-    // 廣告載入監控
-    // -----------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------
+// 廣告載入監控
+// -----------------------------------------------------------------------------------
+extension ApplyFilterViewController: GADBannerViewDelegate {
+    
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
         print("adViewDidReceiveAd")
     }
@@ -184,6 +178,9 @@ class ApplyFilterViewController: UIViewController, GADBannerViewDelegate{
     }
 }
 
+// -----------------------------------------------------------------------------------
+// 換頁監控
+// -----------------------------------------------------------------------------------
 extension ApplyFilterViewController: ApplyImageViewDelegate {
     func backToMain() {
         self.dismiss(animated: true, completion: nil)
@@ -202,6 +199,21 @@ extension ApplyFilterViewController: ApplyImageViewDelegate {
             self.present(nextController, animated: true, completion: nil)
         }
     }
+}
+
+// -----------------------------------------------------------------------------------
+// 新增或移除濾鏡監控
+// -----------------------------------------------------------------------------------
+extension ApplyFilterViewController: AddOrRemoveFilterDelegate {
+    func addFilter(categoryName: String, filterName: String) {
+        print("add filter: \(categoryName)  \(filterName)")
+        filterDetailView.changeDisplay()
+        filterDetailView.popUpAttributeView(isPop: true)
+    }
     
-    
+    func removeFilter(filterName: String) {
+        print("revmoe filter: \(filterName)")
+        filterDetailView.changeDisplay()
+        //filterDetailView.popUpAttributeView(isPop: false)
+    }
 }

@@ -18,7 +18,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         imagePicker.delegate = self
         
         present(imagePicker, animated: true, completion: nil)
-        print("open album")
     }
     
     @IBAction func openCamera(_ sender: UIButton) {

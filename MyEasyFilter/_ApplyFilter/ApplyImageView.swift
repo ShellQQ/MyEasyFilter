@@ -18,7 +18,7 @@ class ApplyImageView: UIView {
     
     var image: UIImage = UIImage() {
         didSet {
-            print("image size \(image.size)")
+            
             let size = image.size
             
             if size.height > size.width {
@@ -135,9 +135,6 @@ class ApplyImageView: UIView {
     
     // -----------------------------------------------------------------------------------
     // -----------------------------------------------------------------------------------
-    
-    
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -184,19 +181,6 @@ class ApplyImageView: UIView {
 //        }
 //
 //    }
-    
-    func createTestView() -> UIView{
-        let view = UIView()
-        view.backgroundColor = randomColor()
-        
-        return view
-    }
-    
-    func randomColor() -> UIColor {
-        let color = UIColor(red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: 1)
-        
-        return color
-    }
     
     @objc func backButtonTap(_ button: UIButton) {
         delegate?.backToMain()

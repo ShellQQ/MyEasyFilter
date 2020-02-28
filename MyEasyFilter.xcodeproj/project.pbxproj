@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18015F0924050EA800C039CE /* FilterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18015F0824050EA800C039CE /* FilterData.swift */; };
+		18015F0B240588C800C039CE /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18015F0A240588C800C039CE /* Info.storyboard */; };
+		18015F0D2405891C00C039CE /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18015F0C2405891C00C039CE /* InfoViewController.swift */; };
+		18015F1324091B4E00C039CE /* TemplateNSNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18015F1224091B4E00C039CE /* TemplateNSNumberView.swift */; };
+		18015F1624091BD300C039CE /* TemplateNSNumberView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18015F1524091BD300C039CE /* TemplateNSNumberView.xib */; };
 		1806EBD223EB17BC00F7D6E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1806EBD123EB17BC00F7D6E7 /* AppDelegate.swift */; };
 		1806EBD423EB17BC00F7D6E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1806EBD323EB17BC00F7D6E7 /* ViewController.swift */; };
 		1806EBD723EB17BC00F7D6E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1806EBD523EB17BC00F7D6E7 /* Main.storyboard */; };
@@ -37,6 +42,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18015F0824050EA800C039CE /* FilterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterData.swift; sourceTree = "<group>"; };
+		18015F0A240588C800C039CE /* Info.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Info.storyboard; sourceTree = "<group>"; };
+		18015F0C2405891C00C039CE /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		18015F1224091B4E00C039CE /* TemplateNSNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TemplateNSNumberView.swift; path = ../../Template/TemplateNSNumberView.swift; sourceTree = "<group>"; };
+		18015F1524091BD300C039CE /* TemplateNSNumberView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TemplateNSNumberView.xib; sourceTree = "<group>"; };
 		1806EBCE23EB17BC00F7D6E7 /* MyEasyFilter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyEasyFilter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1806EBD123EB17BC00F7D6E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1806EBD323EB17BC00F7D6E7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +92,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18015F0724050E5B00C039CE /* _Data */ = {
+			isa = PBXGroup;
+			children = (
+				18015F0824050EA800C039CE /* FilterData.swift */,
+			);
+			path = _Data;
+			sourceTree = "<group>";
+		};
+		18015F1424091BB100C039CE /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				18015F1224091B4E00C039CE /* TemplateNSNumberView.swift */,
+				18015F1524091BD300C039CE /* TemplateNSNumberView.xib */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		1806EBC523EB17BC00F7D6E7 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +138,7 @@
 				1806EBEA23EB1D2A00F7D6E7 /* _ShowSelectFilter */,
 				1806EBE923EB1CCD00F7D6E7 /* _Publish */,
 				1806EBF023EB2C0A00F7D6E7 /* EXTENSION */,
+				18015F0724050E5B00C039CE /* _Data */,
 				1806EBD123EB17BC00F7D6E7 /* AppDelegate.swift */,
 				1806EBDB23EB17BF00F7D6E7 /* Assets.xcassets */,
 				1806EBE023EB17BF00F7D6E7 /* Info.plist */,
@@ -144,6 +172,8 @@
 		1806EBE823EB1CC300F7D6E7 /* _Info */ = {
 			isa = PBXGroup;
 			children = (
+				18015F0A240588C800C039CE /* Info.storyboard */,
+				18015F0C2405891C00C039CE /* InfoViewController.swift */,
 			);
 			path = _Info;
 			sourceTree = "<group>";
@@ -169,6 +199,7 @@
 		1806EBEB23EB1D8900F7D6E7 /* XIB */ = {
 			isa = PBXGroup;
 			children = (
+				18015F1424091BB100C039CE /* New Group */,
 				182938FE23F94BC30001DFF1 /* CategoryCollectionViewCell.swift */,
 				182938FF23F94BC30001DFF1 /* CategoryCollectionViewCell.xib */,
 				1829390423F94C310001DFF1 /* FilterCollectionViewCell.swift */,
@@ -274,7 +305,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18015F0B240588C800C039CE /* Info.storyboard in Resources */,
 				1806EBDF23EB17BF00F7D6E7 /* LaunchScreen.storyboard in Resources */,
+				18015F1624091BD300C039CE /* TemplateNSNumberView.xib in Resources */,
 				1806EBED23EB23BC00F7D6E7 /* ApplyFilter.storyboard in Resources */,
 				1806EBDC23EB17BF00F7D6E7 /* Assets.xcassets in Resources */,
 				182938F923F6F7050001DFF1 /* Publish.storyboard in Resources */,
@@ -323,6 +356,7 @@
 				1806EBF223EB2C3C00F7D6E7 /* UIImage+Ext.swift in Sources */,
 				1806EBD423EB17BC00F7D6E7 /* ViewController.swift in Sources */,
 				182938F323F6A1230001DFF1 /* TemplateButton.swift in Sources */,
+				18015F0D2405891C00C039CE /* InfoViewController.swift in Sources */,
 				182938F723F6F6540001DFF1 /* ShowSelectFilterViewController.swift in Sources */,
 				1829390A23F94C430001DFF1 /* AttributeCollectionViewCell.swift in Sources */,
 				1806EBEF23EB247700F7D6E7 /* ApplyFilterViewController.swift in Sources */,
@@ -330,6 +364,8 @@
 				1806EBF823EC7CD500F7D6E7 /* UIView+Ext.swift in Sources */,
 				182938FB23F6F7830001DFF1 /* PublishViewController.swift in Sources */,
 				1806EBFA23EC7D8B00F7D6E7 /* UIColor+Ext.swift in Sources */,
+				18015F1324091B4E00C039CE /* TemplateNSNumberView.swift in Sources */,
+				18015F0924050EA800C039CE /* FilterData.swift in Sources */,
 				1829390623F94C310001DFF1 /* FilterCollectionViewCell.swift in Sources */,
 				1806EBDA23EB17BC00F7D6E7 /* MyEasyFilter.xcdatamodeld in Sources */,
 				182938FD23F7E9CD0001DFF1 /* TemplateContentView.swift in Sources */,

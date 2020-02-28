@@ -76,6 +76,12 @@ class FilterCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    func cellIsSelected() {
+        addOrRemoveButton.isSelected = true
+        self.backgroundView = selectedBackView()
+        self.selectedBackgroundView = selectedBackViewWithBorder()
+    }
+    
     /*func resetCell() {
         self.isSelected = false
         self.backgroundView = backView()

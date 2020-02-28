@@ -49,6 +49,8 @@ class FilterDetailView: UIView {
 
     var stackView: UIStackView!
     
+    weak var delegate: ChangeViewDelegate?
+    
     //let fullScrrenSize = UIScreen.main.bounds.size
     //var valueYConstraint: NSLayoutConstraint!
     //var attributeYConstraint: NSLayoutConstraint!
@@ -101,6 +103,9 @@ class FilterDetailView: UIView {
         let view = TemplateContentView(type: .filterDetail)
         
         view.titleText = "Filter Detail"
+        
+        view.infoButton.addTarget(self, action: #selector(infoButtonTap(_:)), for: .touchUpInside)
+        view.foldButton.addTarget(self, action: #selector(foldButtonTap(_:)), for: .touchUpInside)
         
         attributeCollectionView = view.initListCollectionView(cellSize: CGSize(width: 80, height: 30), cellIdentifier: attributeCellIdentifier)
         
@@ -243,8 +248,6 @@ class FilterDetailView: UIView {
             self.selectAttributeView.isHidden = !isPop
             self.selectAttributeView.alpha = isPop ? 1.0 : 0.0
             }, completion: nil)
-        
-        
     }
     
     func changeDisplay() {
@@ -254,6 +257,20 @@ class FilterDetailView: UIView {
         else {
             selectAttributeSubview.changeDescripLabelAndCollectionView(animated: true)
         }
+    }
+    
+    @objc func infoButtonTap(_ sender: UIButton) {
+        delegate?.goInfoPage()
+    }
+    
+    @objc func foldButtonTap(_ sender: UIButton) {
+        print("fold")
+        guard !selectAttributeView.isHidden else { return  }
+        
+        UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseOut, animations: {
+            self.selectAttributeView.isHidden = true
+            self.selectAttributeView.alpha = 0
+        }, completion: nil)
     }
     /*
      // Only override draw() if you perform custom drawing.
@@ -333,6 +350,10 @@ extension FilterDetailView: UICollectionViewDelegate, UICollectionViewDataSource
             cell.filterName = filterList[indexPath.item]
             cell.delegate = self.viewController() as? AddOrRemoveFilterDelegate
             
+            if FilterData.data.isInFilterList(filterName: filterList[indexPath.item]) {
+                cell.cellIsSelected()
+            }
+            
             return cell
         }
             
@@ -359,6 +380,8 @@ extension FilterDetailView: UICollectionViewDelegate, UICollectionViewDataSource
             selectedFilterName = filterList[selectedFilterIndex]
             selectFilterView.nameText = CIFilter.localizedName(forFilterName: selectedFilterName) ?? ""
             filterCollectionView.reloadData()
+            //filterCollectionView.layoutIfNeeded()
+            //filterCollectionView.setContentOffset(filterCollectionView.contentOffset, animated: false)
             
             popUpAttributeView(isPop: false)
         }
@@ -378,6 +401,13 @@ extension FilterDetailView: UICollectionViewDelegate, UICollectionViewDataSource
             }
             
             popUpAttributeView(isPop: true)
+            
+            if FilterData.data.isInFilterList(filterName: selectedFilterName) {
+                //changeDisplay(viewType: .collectionView)
+            }
+            else {
+                //changeDisplay(viewType: .label)
+            }
         }
             
         else if collectionView == attributeCollectionView {

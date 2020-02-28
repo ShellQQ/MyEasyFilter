@@ -14,7 +14,7 @@ class ApplyImageView: UIView {
     
     let fullScrrenSize = UIScreen.main.bounds.size
     
-    weak var delegate: ApplyImageViewDelegate?
+    weak var delegate: ChangeViewDelegate?
     
     var image: UIImage = UIImage() {
         didSet {
@@ -203,8 +203,9 @@ class ApplyImageView: UIView {
 
 }
 
-protocol ApplyImageViewDelegate: class{
+protocol ChangeViewDelegate: class{
     func backToMain()
     func goPublishPage()
     func goFilterListPage()
+    func goInfoPage()
 }

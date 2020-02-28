@@ -35,7 +35,8 @@ class ApplyFilterViewController: UIViewController{
     
     lazy var filterDetailView: FilterDetailView = {
         let view = FilterDetailView()
-
+        
+        view.delegate = self
         // 設定 filterDetailView 的 Constraint
         /*detailHeightConstraint = NSLayoutConstraint(item: view,
                                                     attribute: .height,
@@ -84,7 +85,7 @@ class ApplyFilterViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // 主畫面加上漸層背景圖層
         view.addGradientLayer(frame: view.frame)
         if let layer = view.layer.sublayers?[0] as? CAGradientLayer {
@@ -119,8 +120,6 @@ class ApplyFilterViewController: UIViewController{
         filterDetailView.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
         bannerView.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
         bannerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        print("view did load \(stackView.frame)")
     }
     
     func randomColor() -> UIColor {
@@ -181,7 +180,7 @@ extension ApplyFilterViewController: GADBannerViewDelegate {
 // -----------------------------------------------------------------------------------
 // 換頁監控
 // -----------------------------------------------------------------------------------
-extension ApplyFilterViewController: ApplyImageViewDelegate {
+extension ApplyFilterViewController: ChangeViewDelegate {
     func backToMain() {
         self.dismiss(animated: true, completion: nil)
     }
@@ -199,6 +198,14 @@ extension ApplyFilterViewController: ApplyImageViewDelegate {
             self.present(nextController, animated: true, completion: nil)
         }
     }
+    
+    func goInfoPage() {
+        print("go info")
+        let nextStoryboard = UIStoryboard(name: "Info", bundle: nil)
+        if let nextController = nextStoryboard.instantiateViewController(withIdentifier: "Info") as? InfoViewController {
+            self.present(nextController, animated: true, completion: nil)
+        }
+    }
 }
 
 // -----------------------------------------------------------------------------------
@@ -206,14 +213,14 @@ extension ApplyFilterViewController: ApplyImageViewDelegate {
 // -----------------------------------------------------------------------------------
 extension ApplyFilterViewController: AddOrRemoveFilterDelegate {
     func addFilter(categoryName: String, filterName: String) {
-        print("add filter: \(categoryName)  \(filterName)")
         filterDetailView.changeDisplay()
         filterDetailView.popUpAttributeView(isPop: true)
+        FilterData.data.addFilterToList(categoryName: categoryName, filterName: filterName)
     }
     
     func removeFilter(filterName: String) {
-        print("revmoe filter: \(filterName)")
         filterDetailView.changeDisplay()
+        FilterData.data.removeFilterFromList(filterName: filterName)
         //filterDetailView.popUpAttributeView(isPop: false)
     }
 }

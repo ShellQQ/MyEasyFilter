@@ -12,6 +12,7 @@ class TemplateContentView: UIView {
 
     private var templateType: TemplateType = .normal
     
+    
     // -- First Row View -----------------------------------------------------------------
     //    - titleLabel
     //    - nameLabel -- TemplateType.normal
@@ -68,13 +69,15 @@ class TemplateContentView: UIView {
         return label
     }()
     
-    private lazy var infoButton: UIButton = {
+    lazy var infoButton: UIButton = {
         let button = TemplateButton(imageName: "info", size: CGSize(width: 18, height: 18))
+        
         return button
     }()
     
-    private lazy var foldButton: UIButton = {
+    lazy var foldButton: UIButton = {
         let button = TemplateButton(imageName: "down-arrow", backgroundColor: UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.1), size: CGSize(width: 18, height: 18))
+        
         return button
     }()
     
@@ -123,8 +126,6 @@ class TemplateContentView: UIView {
         
         return view
     }()
-    
-    
   
     private lazy var descripLabel: UILabel = {
         let label = UILabel()
@@ -167,7 +168,7 @@ class TemplateContentView: UIView {
         secondRowView.heightAnchor.constraint(equalToConstant: 30).isActive = true
         secondRowView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
     }
-    
+
     func initListCollectionView(cellSize: CGSize, cellIdentifier: String) -> UICollectionView{
         collectionViewLayout = UICollectionViewFlowLayout()
         
@@ -183,7 +184,7 @@ class TemplateContentView: UIView {
         // 控制是否啟用滾動到頂部的手勢
         listCollectionView.scrollsToTop = false
         // 控制滾動視圖是否在內容邊緣彈跳並再次彈回
-        listCollectionView.bounces = false
+        listCollectionView.bounces = true
         // 控制水平滾動指示器是否可見
         listCollectionView.showsHorizontalScrollIndicator = false
         // 設定Cell是否可多選
@@ -239,4 +240,9 @@ enum TemplateType {
     case normal
     case filterDetail
     case attributeAdjust
+}
+
+enum SecondRowViewType {
+    case label
+    case collectionView
 }

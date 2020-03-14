@@ -55,4 +55,19 @@ class AttributeCollectionViewCell: UICollectionViewCell {
         //self.layer.addSublayer(layer)
         return layer
     }
+    
+    func disableCell(isDisable: Bool) {
+        if isDisable {
+            self.label.textColor = .gray
+            self.backgroundView!.alpha = 0.1
+            self.isUserInteractionEnabled = false
+        }
+        else {
+            self.label.textColor = .white
+            self.backgroundView!.alpha = 0.2
+            self.isUserInteractionEnabled = true
+        }
+    }
+    
+    
 }

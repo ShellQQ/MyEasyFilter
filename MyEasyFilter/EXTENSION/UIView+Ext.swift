@@ -52,6 +52,12 @@ extension UIView {
         self.backgroundColor = UIColor(red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: 1)
     }
     
+    func removeAllSubviews() {
+        for view in self.subviews {
+            view.removeFromSuperview()
+        }
+    }
+    
     func viewController() -> UIViewController? {
         //        var parentResponder: UIResponder? = self.superview
         //        while true {
@@ -71,8 +77,7 @@ extension UIView {
         }
         return nil
     }
-    
-    
+
     func parentViewController() -> UIViewController? {
         var parentResponder: UIResponder? = self
         while true {

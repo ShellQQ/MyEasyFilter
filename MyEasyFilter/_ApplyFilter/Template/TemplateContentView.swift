@@ -11,8 +11,7 @@ import UIKit
 class TemplateContentView: UIView {
 
     private var templateType: TemplateType = .normal
-    
-    
+ 
     // -- First Row View -----------------------------------------------------------------
     //    - titleLabel
     //    - nameLabel -- TemplateType.normal
@@ -36,17 +35,15 @@ class TemplateContentView: UIView {
             
         case .filterDetail:
             view.addSubview(infoButton)
-            view.addSubview(foldButton)
-            
+
             infoButton.translatesAutoresizingMaskIntoConstraints = false
             infoButton.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 20).isActive = true
             infoButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -3).isActive = true
             
-            foldButton.translatesAutoresizingMaskIntoConstraints = false
-            foldButton.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-            foldButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -3).isActive = true
-        case .attributeAdjust:
-            print("attribute")
+            //view.addSubview(foldButton)
+            //foldButton.translatesAutoresizingMaskIntoConstraints = false
+            //foldButton.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+            //foldButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -3).isActive = true
         }
 
         return view
@@ -120,8 +117,6 @@ class TemplateContentView: UIView {
             descripLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
             descripLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
             descripLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        default:
-            break
         }
         
         return view
@@ -148,6 +143,8 @@ class TemplateContentView: UIView {
         }
     }
     
+    // -- Init ---------------------------------------------------------------------------
+    // -----------------------------------------------------------------------------------
     convenience init(type: TemplateType) {
         self.init()
         
@@ -204,7 +201,8 @@ class TemplateContentView: UIView {
         return listCollectionView
     }
 
-    func changeDescripLabelAndCollectionView(animated: Bool) {
+    func changeDescripLabelAndCollectionView(to: String, animated: Bool) {
+       
         if animated {
             UIView.animate(withDuration: 1) {
                 self.descripLabel.alpha = ( self.descripLabel.alpha + 1.0 ).truncatingRemainder(dividingBy: 2)
@@ -217,14 +215,39 @@ class TemplateContentView: UIView {
         }
     }
     
-    func showDiscripLabel() {
-        descripLabel.isHidden = false
-        listCollectionView.isHidden = true
+    func showDiscripLabel(animated: Bool) {
+        guard !listCollectionView.isHidden else {    return  }
+        
+        if animated {
+            UIView.animate(withDuration: 0.4) {
+                //self.descripLabel.alpha = 1.0
+                //self.listCollectionView.alpha = 0
+                self.descripLabel.isHidden = false
+                self.listCollectionView.isHidden = true
+            }
+        }
+        else {
+            descripLabel.isHidden = false
+            listCollectionView.isHidden = true
+        }
+        
     }
     
-    func showListCollectionView() {
-        descripLabel.isHidden = true
-        listCollectionView.isHidden = false
+    func showListCollectionView(animated: Bool) {
+        guard !descripLabel.isHidden else { return  }
+        if animated {
+            UIView.animate(withDuration: 0.4) {
+                //self.descripLabel.alpha = 0
+                //self.listCollectionView.alpha = 1
+                self.descripLabel.isHidden = true
+                self.listCollectionView.isHidden = false
+            }
+        }
+        else {
+            descripLabel.isHidden = true
+            listCollectionView.isHidden = false
+            
+        }
     }
     /*
     // Only override draw() if you perform custom drawing.
@@ -239,10 +262,5 @@ class TemplateContentView: UIView {
 enum TemplateType {
     case normal
     case filterDetail
-    case attributeAdjust
 }
 
-enum SecondRowViewType {
-    case label
-    case collectionView
-}

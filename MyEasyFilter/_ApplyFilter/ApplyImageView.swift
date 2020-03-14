@@ -18,7 +18,6 @@ class ApplyImageView: UIView {
     
     var image: UIImage = UIImage() {
         didSet {
-            
             let size = image.size
             
             if size.height > size.width {
@@ -29,10 +28,14 @@ class ApplyImageView: UIView {
                 // 在Image view尺寸內，圖片依照原比例顯示
                 centerView.contentMode = .scaleAspectFit
             }
-            
-            centerView.image = image
+            image = image.imageResize(newSize: CGSize(width: size.width / 12, height: size.height / 12))
+            outputImage = image
+            centerView.image = outputImage
+            print("output image size:\(outputImage.size)")
         }
     }
+    
+    var outputImage: UIImage = UIImage()
     
     // -- TOP VIEW -----------------------------------------------------------------------
     // -----------------------------------------------------------------------------------
@@ -164,10 +167,27 @@ class ApplyImageView: UIView {
         
         topView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         bottomView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        // -----------------------------------------------------------------------------------
+        // NotificationCenter addObserver
+        // -----------------------------------------------------------------------------------
+        NotificationCenter.default.addObserver(self, selector: #selector(changeFilterValue(notification:)), name: NSNotification.Name(rawValue: "FilterChangeEvent"), object: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func backButtonTap(_ button: UIButton) {
+        delegate?.backToMain()
+    }
+    
+    @objc func publishButtonTap(_ button: UIButton) {
+        delegate?.goPublishPage()
+    }
+    
+    @objc func filterListButtonTap(_ button: UIButton) {
+        delegate?.goFilterListPage()
     }
     
 //    override func layoutSubviews() {
@@ -182,30 +202,18 @@ class ApplyImageView: UIView {
 //
 //    }
     
-    @objc func backButtonTap(_ button: UIButton) {
-        delegate?.backToMain()
-    }
-    
-    @objc func publishButtonTap(_ button: UIButton) {
-        delegate?.goPublishPage()
-    }
-    
-    @objc func filterListButtonTap(_ button: UIButton) {
-        delegate?.goFilterListPage()
-    }
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
 }
 
-protocol ChangeViewDelegate: class{
-    func backToMain()
-    func goPublishPage()
-    func goFilterListPage()
-    func goInfoPage()
+// -----------------------------------------------------------------------------------
+// NotificationCenter 監控
+// -----------------------------------------------------------------------------------
+extension ApplyImageView {
+    @objc func changeFilterValue(notification: Notification) {
+        print("notification call")
+        outputImage = FilterData.data.applyAllFilters(image: image)
+        centerView.image = outputImage
+        //guard let info = notification.userInfo else { return }
+        //guard let info = NSNumberInfo(notification: notification) else { return }
+        //guard let info = InputEvent(notification: notification) else { return }
+    }
 }

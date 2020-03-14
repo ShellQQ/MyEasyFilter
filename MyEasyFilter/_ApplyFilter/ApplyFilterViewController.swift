@@ -66,7 +66,7 @@ class ApplyFilterViewController: UIViewController{
         // -----------------------------------------------------------------------------------
         let adView = GADBannerView(adSize: kGADAdSizeBanner)
 
-        adView.backgroundColor = randomColor()
+        adView.randomColor()
         
         // 設定廣告ID, delegate, view controller
         adView.adUnitID = "ca-app-pub-2351040660919094/7319797991"
@@ -122,10 +122,10 @@ class ApplyFilterViewController: UIViewController{
         bannerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
-    func randomColor() -> UIColor {
-        let color = UIColor(red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: 1)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         
-        return color
+        NotificationCenter.default.removeObserver(self)
     }
     
     /*
@@ -200,7 +200,6 @@ extension ApplyFilterViewController: ChangeViewDelegate {
     }
     
     func goInfoPage() {
-        print("go info")
         let nextStoryboard = UIStoryboard(name: "Info", bundle: nil)
         if let nextController = nextStoryboard.instantiateViewController(withIdentifier: "Info") as? InfoViewController {
             self.present(nextController, animated: true, completion: nil)
@@ -208,19 +207,22 @@ extension ApplyFilterViewController: ChangeViewDelegate {
     }
 }
 
+
+
+
+
+
 // -----------------------------------------------------------------------------------
-// 新增或移除濾鏡監控
+// Protocol
 // -----------------------------------------------------------------------------------
-extension ApplyFilterViewController: AddOrRemoveFilterDelegate {
-    func addFilter(categoryName: String, filterName: String) {
-        filterDetailView.changeDisplay()
-        filterDetailView.popUpAttributeView(isPop: true)
-        FilterData.data.addFilterToList(categoryName: categoryName, filterName: filterName)
-    }
-    
-    func removeFilter(filterName: String) {
-        filterDetailView.changeDisplay()
-        FilterData.data.removeFilterFromList(filterName: filterName)
-        //filterDetailView.popUpAttributeView(isPop: false)
-    }
+protocol ChangeViewDelegate: class{
+    func backToMain()
+    func goPublishPage()
+    func goFilterListPage()
+    func goInfoPage()
+}
+
+protocol AddOrRemoveFilterDelegate: class {
+    func addFilter(categoryName: String, filterName: String)
+    func removeFilter(filterName: String)
 }

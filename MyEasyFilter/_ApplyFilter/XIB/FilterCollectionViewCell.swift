@@ -29,6 +29,7 @@ class FilterCollectionViewCell: UICollectionViewCell {
             self.selectedBackgroundView = backViewWithBorder()
             
             addOrRemoveButton.isSelected = false
+            addOrRemoveButton.isEnabled = true
         }
     }
     
@@ -80,6 +81,10 @@ class FilterCollectionViewCell: UICollectionViewCell {
         addOrRemoveButton.isSelected = true
         self.backgroundView = selectedBackView()
         self.selectedBackgroundView = selectedBackViewWithBorder()
+    }
+    
+    func disableAddOrRemoveButton() {
+        addOrRemoveButton.isEnabled = false
     }
     
     /*func resetCell() {

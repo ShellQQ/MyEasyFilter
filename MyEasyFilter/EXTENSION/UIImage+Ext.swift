@@ -11,7 +11,7 @@ import UIKit
 extension UIImage {
     
     // Set Filter with default value
-    func setFilterDefault(name: String) -> UIImage?{
+    func setFilterDefault(name: String) -> UIImage{
         
         let ciImage = CIImage(image: self)
         
@@ -27,8 +27,89 @@ extension UIImage {
                 return image
             }
         }
-        return nil
+        return UIImage()
     }
+    
+    func applyFilter(filterName: String, attributes: Dictionary<String, FilterAttribute>) -> UIImage {
+        let ciImage = CIImage(image: self)
+        
+        guard let filter = CIFilter(name: filterName) else { return self }
+        
+        for (key, attribute) in attributes {
+            
+            //let className = attribute.className
+            if key == kCIInputImageKey {
+                filter.setValue(ciImage, forKey: key)
+            }
+            else {
+                filter.setValue(attribute.value, forKey: key)
+            }
+        }
+        
+        //if let outputImage = filter.outputImage, let cgImage = CIContext().createCGImage(outputImage, from: outputImage.extent) {
+        if let outputImage = filter.outputImage {
+            //return UIImage(cgImage: outputImage)
+            return UIImage(ciImage: outputImage)
+        }
+        
+        return self
+    }
+    
+    /*func setFilter(image: UIImage, filter: CIFilter, keys: [FilterAttributeAndKey]) -> UIImage{
+        
+        var returnImage = image
+        
+        let ciImage = CIImage(image: image)
+        
+        for key in keys {
+            
+            print("get key:\(key.attributeFilterKey)")
+            print("get value:\(key.attributeDefault)")
+            
+            let forKey = key.attributeFilterKey
+            let value = key.attributeDefault
+            let type = key.attributeClass
+            
+            key.attributeSave = value
+            
+            // -- CIImage 另外處理
+            if type == "CIImage"{
+                switch forKey {
+                case kCIInputImageKey:
+                    filter.setValue(ciImage, forKey: forKey)
+                case kCIInputMaskImageKey:
+                    print("set inputMask")
+                default:
+                    break
+                }
+            }
+            else if type == "NSNumber"{
+                filter.setValue(value, forKey: forKey)
+            }
+        }
+        
+        //outputImage = UIImage(ciImage: filter.outputImage!)
+        if let outputImage = filter.outputImage, let cgImage = CIContext().createCGImage(outputImage, from: outputImage.extent) {
+            returnImage = UIImage(cgImage: cgImage)
+            print("filter set success")
+        }
+        
+        return returnImage
+    }
+    
+    func resetFilter(filter: CIFilter, forKey: String, value: Any) -> UIImage{
+        var returnImage = UIImage()
+        
+        print("reset key:\(forKey) and value:\(value)")
+        
+        filter.setValue(value, forKey: forKey)
+        
+        if let outputImage = filter.outputImage, let cgImage = CIContext().createCGImage(outputImage, from: outputImage.extent) {
+            returnImage = UIImage(cgImage: cgImage)
+        }
+        
+        return returnImage
+    }*/
     
     // UIImage Resize
     func imageResize(newSize: CGSize) -> UIImage {
@@ -104,4 +185,39 @@ extension UIImage {
         
         return img;
     }
+    
+    // 設置圖片圓角
+    func isRoundCorner(radius: CGFloat, corners: UIRectCorner) -> UIImage {
+        let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: self.size)
+        // 開始圖形上下文
+        UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
+        // 繪製路徑
+        UIGraphicsGetCurrentContext()?.addPath(UIBezierPath(roundedRect: rect,
+                                                            byRoundingCorners: corners,
+                                                            cornerRadii: CGSize(width: radius, height: radius)).cgPath)
+        // 裁剪
+        UIGraphicsGetCurrentContext()!.clip()
+        // 將原圖片畫到圖型上下文內将原图片画到图形上下文
+        self.draw(in: rect)
+        UIGraphicsGetCurrentContext()!.drawPath(using: .fillStroke)
+        guard let output = UIGraphicsGetImageFromCurrentImageContext() else { return self }
+        // 關閉上下文
+        UIGraphicsEndImageContext()
+        return output
+    }
+    
+    func mergeWithImage(_ image: UIImage) -> UIImage {
+
+        UIGraphicsBeginImageContextWithOptions(self.size, false, UIScreen.main.scale)
+        
+        self.draw(in: CGRect(origin: CGPoint(x: 0, y: 0), size: self.size))
+        image.draw(in: CGRect(origin: CGPoint(x:(self.size.width - image.size.width) / 2, y: (self.size.height - image.size.height) / 2), size: image.size))
+        
+        guard let output = UIGraphicsGetImageFromCurrentImageContext() else { return self }
+        
+        UIGraphicsEndImageContext()
+        
+        return output
+    }
+
 }

@@ -17,7 +17,8 @@ class PublishViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view.roundAllCorners(cornerRadius: 30)
+        view.addGradientLayer(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
     }
     
     func startPublish() {

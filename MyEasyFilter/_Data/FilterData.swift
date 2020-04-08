@@ -51,7 +51,7 @@ class FilterData {
         [kCICategoryBlur: ["CIDepthBlurEffect"],
          kCICategoryColorAdjustment: [],
          kCICategoryColorEffect: ["CIColorCube", "CIColorCubeWithColorSpace", "CIColorCubesMixedWithMask", "CIColorCurves", "CIPalettize"],
-         kCICategoryCompositeOperation: ["CISourceInCompositing", "CISourceOutCompositing", "CISourceOverCompositing"],
+         kCICategoryCompositeOperation: ["CIAdditionCompositing", "CIColorBlendMode", "CIColorBurnBlendMode", "CIColorDodgeBlendMode", "CIDarkenBlendMode", "CIDifferenceBlendMode", "CIDivideBlendMode", "CIExclusionBlendMode", "CIHardLightBlendMode", "CIHueBlendMode", "CILightenBlendMode", "CILinearBurnBlendMode", "CILinearDodgeBlendMode", "CILuminosityBlendMode", "CIMaximumCompositing", "CIMinimumCompositing", "CIMultiplyBlendMode", "CIMultiplyCompositing", "CIOverlayBlendMode", "CIPinLightBlendMode", "CISaturationBlendMode", "CIScreenBlendMode", "CISoftLightBlendMode", "CISourceAtopCompositing", "CISourceInCompositing", "CISourceOutCompositing", "CISourceOverCompositing", "CISubtractBlendMode"],
          kCICategoryDistortionEffect: ["CICameraCalibrationLensCorrection"],
          kCICategoryGenerator: ["CIAttributedTextImageGenerator", "CIAztecCodeGenerator", "CIBarcodeGenerator", "CICheckerboardGenerator", "CICode128BarcodeGenerator", "CIConstantColorGenerator", "CILenticularHaloGenerator", "CIMeshGenerator", "CIPDF417BarcodeGenerator", "CIQRCodeGenerator", "CIRandomGenerator", "CIStarShineGenerator", "CIStripesGenerator", "CISunbeamsGenerator", "CITextImageGenerator"],
          kCICategoryGeometryAdjustment: ["CIAffineTransform"],
@@ -128,20 +128,69 @@ class FilterData {
         return false
     }
     
+    //
+    func getAttributesInfoByName(filterName: String) -> Dictionary<String, FilterAttribute> {
+        
+        for filters in saveData {
+            
+            for filter in filters.value {
+                if filter.key == filterName {
+                    return filter.value
+                }
+            }
+        }
+        return [:]
+    }
+    
+    func getAllSaveFilterNames() -> Array<String>{
+        var filterNames = Array<String>()
+
+        let categorySortByKey = saveData.sorted{ first, second in
+            return first.0 < second.0
+        }
+
+        for item in categorySortByKey {
+            let filterSortByKey = item.value.keys.sorted(by: <)
+            filterNames += filterSortByKey
+        }
+        
+        return filterNames
+    }
+    
+    // 已儲存濾鏡數
+    func numOfSaveFilters() -> Int {
+        return saveData.count
+    }
+    
     // 得到濾鏡資訊，以顯示在 Info Page
     func getFilterInfo(filterName: String) -> FilterInfo? {
-        guard let filter = CIFilter(name: "CIBokehBlur") else { return nil}
-    
+        guard let filter = CIFilter(name: filterName) else { return nil }
+
         let attributes = filter.attributes
         let inputKeys = filter.inputKeys
         
         let filterDispalyName = attributes[kCIAttributeFilterDisplayName] as! String
-        let description = attributes[kCIAttributeDescription] as! String
-        let categories = attributes[kCIAttributeFilterCategories] as! String
+        let description = CIFilter.localizedDescription(forFilterName: filterName) ?? "Not provided by CoreImage"
+        
+        let categoriesArray = attributes[kCIAttributeFilterCategories] as? NSArray ?? []
+        var categories = ""
+        for cat in  categoriesArray{
+            categories += "\(cat), "
+        }
+        
         let ios = attributes[kCIAttributeFilterAvailable_iOS] as! String
         let mac = attributes[kCIAttributeFilterAvailable_Mac] as! String
-        let reference = attributes[kCIAttributeReferenceDocumentation] as! String
+        let reference = attributes[kCIAttributeReferenceDocumentation] as? String ?? "No reference Provided by CoreImage"
+    
         var attributeList = Array<FilterAttributeInfo>()
+        
+        //print(attributes)
+        //print("displayName: \(filterDispalyName)")
+        //print("description: \(description)")
+        //print("categories: \(categories)")
+        //print("ios \(ios)")
+        //print("mac: \(mac)")
+        //print("reference: \(reference)")
         
         for key in inputKeys {
             let attribute = attributes[key] as? [String : AnyObject]
@@ -149,13 +198,29 @@ class FilterData {
             // Class類型
             let className = attribute?[kCIAttributeClass] as! String
             // key的說明
-            let description = attribute?[kCIAttributeDescription] as! String
-            // key Slider Min
-            let sliderMin = (attribute?[kCIAttributeMin] as? NSNumber)!.stringValue
-            // key Slider Max
-            let sliderMax = (attribute?[kCIAttributeMax] as? NSNumber)!.stringValue
+            let description = attribute?[kCIAttributeDescription] as? String ?? "Not provided by CoreImage"
             
-            attributeList.append(FilterAttributeInfo(attributeName: key, className: className, description: description, attributeRange: "Min: \(sliderMin) to Max: \(sliderMax)"))
+            var range: String = ""
+            
+            switch className {
+            case "NSNumber":
+                if let min = attribute?[kCIAttributeMin] as? NSNumber {
+                    range += "Min: \(min) "
+                }
+                if let max = attribute?[kCIAttributeMax] as? NSNumber {
+                    range += "Max: \(max)"
+                }
+            case "CIImage":
+                range += "Image"
+            case "CIVector":
+                range += "Vector"
+            case "CIColor":
+                range += "Color"
+            default:
+                range = ""
+            }
+            
+            attributeList.append(FilterAttributeInfo(attributeName: key, className: className, description: description, attributeRange: range))
         }
         
         return FilterInfo(filterName: filterName, filterDisplayName: filterDispalyName, filterDiscription: description, filterCategory: categories, iosVersion: ios, macVersion: mac, reference: reference, attributes: attributeList)
@@ -178,18 +243,53 @@ class FilterData {
     }
     
     func applyAllFilters(image: UIImage) -> UIImage {
-        var outputImage = image
+
+        var inputImage = CIImage(image: image)!
+        var outputImage = inputImage
+        //var tmpImage = inputImage
         
         for filters in saveData {
             for filter in filters.value {
-                //print(filter.key)
-                //print(filter.value)
-                outputImage = image.applyFilter(filterName: filter.key, attributes: filter.value)
+                
+                outputImage = applyFilter(ciImage: inputImage, filterName: filter.key, attributes: filter.value)
+                inputImage = outputImage
+                /*if let compositingFilter = CIFilter (name: "CIMultiplyCompositing") {
+                
+                compositingFilter.setValue(inputImage, forKey: kCIInputBackgroundImageKey )
+                compositingFilter.setValue(tmpImage, forKey: kCIInputImageKey )
+
+                    if let compositingImage = compositingFilter.outputImage {
+                        outputImage = compositingImage
+                        inputImage = tmpImage
+                    }
+                }*/
             }
         }
-        return outputImage
+        
+        return UIImage(ciImage: outputImage)
     }
     
+    func applyFilter(ciImage: CIImage, filterName: String, attributes: Dictionary<String, FilterAttribute>) -> CIImage {
+        
+        guard let filter = CIFilter(name: filterName) else { return ciImage }
+        
+        for (key, attribute) in attributes {
+            
+            if key == kCIInputImageKey {
+                filter.setValue(ciImage, forKey: key)
+            }
+            else {
+                filter.setValue(attribute.value, forKey: key)
+            }
+        }
+        
+        //if let outputImage = filter.outputImage, let cgImage = CIContext().createCGImage(outputImage, from: outputImage.extent) {
+        if let outputImage = filter.outputImage {
+            return outputImage
+        }
+        
+        return ciImage
+    }
     /*// 將濾鏡存在列表中並依 CategoryName -> FilterName 排序
     func addFilterToList(categoryName: String, filterName: String) {
         

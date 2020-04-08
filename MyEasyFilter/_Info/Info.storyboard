@@ -10,20 +10,20 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Show Select Filter View Controller-->
-        <scene sceneID="dAX-EQ-5PY">
+        <!--Info View Controller-->
+        <scene sceneID="m4J-jM-TOV">
             <objects>
-                <viewController storyboardIdentifier="ShowSelectFilter" id="E8J-iQ-G6t" customClass="ShowSelectFilterViewController" customModule="MyEasyFilter" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="cl7-3Y-jxZ">
+                <viewController storyboardIdentifier="Info" id="bmd-PS-vZD" customClass="InfoViewController" customModule="MyEasyFilter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gnK-1n-l2I">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="wGp-Tl-NXk"/>
+                        <viewLayoutGuide key="safeArea" id="Nuq-NN-86M"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="q3E-G1-JYL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bZm-DE-yhb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="115.94202898550725" y="79.6875"/>
+            <point key="canvasLocation" x="74" y="195"/>
         </scene>
     </scenes>
 </document>

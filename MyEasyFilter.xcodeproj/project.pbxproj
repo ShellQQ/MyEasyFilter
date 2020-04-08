@@ -12,8 +12,9 @@
 		18011B6A2410E03F007FC3B2 /* MyNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18011B692410E03F007FC3B2 /* MyNotificationCenter.swift */; };
 		18011B6E241CB904007FC3B2 /* TemplateCIVectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18011B6D241CB904007FC3B2 /* TemplateCIVectorView.swift */; };
 		18011B70241CB923007FC3B2 /* TemplateCIColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18011B6F241CB923007FC3B2 /* TemplateCIColorView.swift */; };
-		18011B73241D4190007FC3B2 /* ShowSelectedFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18011B71241D4190007FC3B2 /* ShowSelectedFilterTableViewCell.swift */; };
-		18011B74241D4190007FC3B2 /* ShowSelectedFilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18011B72241D4190007FC3B2 /* ShowSelectedFilterTableViewCell.xib */; };
+		18011B76241D5B6E007FC3B2 /* SelectFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18011B75241D5B6E007FC3B2 /* SelectFilterTableViewCell.swift */; };
+		18011B7824220881007FC3B2 /* ParameterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18011B7724220881007FC3B2 /* ParameterTableViewCell.swift */; };
+		18011B7C2432903E007FC3B2 /* TemplateMainMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18011B7B2432903E007FC3B2 /* TemplateMainMenuButton.swift */; };
 		18015F0924050EA800C039CE /* FilterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18015F0824050EA800C039CE /* FilterData.swift */; };
 		18015F0B240588C800C039CE /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18015F0A240588C800C039CE /* Info.storyboard */; };
 		18015F0D2405891C00C039CE /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18015F0C2405891C00C039CE /* InfoViewController.swift */; };
@@ -54,8 +55,9 @@
 		18011B692410E03F007FC3B2 /* MyNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNotificationCenter.swift; sourceTree = "<group>"; };
 		18011B6D241CB904007FC3B2 /* TemplateCIVectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCIVectorView.swift; sourceTree = "<group>"; };
 		18011B6F241CB923007FC3B2 /* TemplateCIColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCIColorView.swift; sourceTree = "<group>"; };
-		18011B71241D4190007FC3B2 /* ShowSelectedFilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSelectedFilterTableViewCell.swift; sourceTree = "<group>"; };
-		18011B72241D4190007FC3B2 /* ShowSelectedFilterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowSelectedFilterTableViewCell.xib; sourceTree = "<group>"; };
+		18011B75241D5B6E007FC3B2 /* SelectFilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFilterTableViewCell.swift; sourceTree = "<group>"; };
+		18011B7724220881007FC3B2 /* ParameterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterTableViewCell.swift; sourceTree = "<group>"; };
+		18011B7B2432903E007FC3B2 /* TemplateMainMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateMainMenuButton.swift; sourceTree = "<group>"; };
 		18015F0824050EA800C039CE /* FilterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterData.swift; sourceTree = "<group>"; };
 		18015F0A240588C800C039CE /* Info.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Info.storyboard; sourceTree = "<group>"; };
 		18015F0C2405891C00C039CE /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			children = (
 				1806EBD523EB17BC00F7D6E7 /* Main.storyboard */,
 				1806EBD323EB17BC00F7D6E7 /* ViewController.swift */,
+				18011B7B2432903E007FC3B2 /* TemplateMainMenuButton.swift */,
 			);
 			path = _Main;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			children = (
 				18015F0A240588C800C039CE /* Info.storyboard */,
 				18015F0C2405891C00C039CE /* InfoViewController.swift */,
+				18011B7724220881007FC3B2 /* ParameterTableViewCell.swift */,
 			);
 			path = _Info;
 			sourceTree = "<group>";
@@ -233,8 +237,7 @@
 			children = (
 				182938F423F6F5700001DFF1 /* ShowSelectFilter.storyboard */,
 				182938F623F6F6540001DFF1 /* ShowSelectFilterViewController.swift */,
-				18011B71241D4190007FC3B2 /* ShowSelectedFilterTableViewCell.swift */,
-				18011B72241D4190007FC3B2 /* ShowSelectedFilterTableViewCell.xib */,
+				18011B75241D5B6E007FC3B2 /* SelectFilterTableViewCell.swift */,
 			);
 			path = _ShowSelectFilter;
 			sourceTree = "<group>";
@@ -354,7 +357,6 @@
 				1806EBD723EB17BC00F7D6E7 /* Main.storyboard in Resources */,
 				182938F523F6F5700001DFF1 /* ShowSelectFilter.storyboard in Resources */,
 				1829390B23F94C430001DFF1 /* AttributeCollectionViewCell.xib in Resources */,
-				18011B74241D4190007FC3B2 /* ShowSelectedFilterTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,7 +399,7 @@
 				18011B68240CFF1A007FC3B2 /* TemplateSlider.swift in Sources */,
 				182938F323F6A1230001DFF1 /* TemplateButton.swift in Sources */,
 				18015F0D2405891C00C039CE /* InfoViewController.swift in Sources */,
-				18011B73241D4190007FC3B2 /* ShowSelectedFilterTableViewCell.swift in Sources */,
+				18011B76241D5B6E007FC3B2 /* SelectFilterTableViewCell.swift in Sources */,
 				182938F723F6F6540001DFF1 /* ShowSelectFilterViewController.swift in Sources */,
 				1829390A23F94C430001DFF1 /* AttributeCollectionViewCell.swift in Sources */,
 				1806EBEF23EB247700F7D6E7 /* ApplyFilterViewController.swift in Sources */,
@@ -411,7 +413,9 @@
 				18011B6E241CB904007FC3B2 /* TemplateCIVectorView.swift in Sources */,
 				1829390623F94C310001DFF1 /* FilterCollectionViewCell.swift in Sources */,
 				1806EBDA23EB17BC00F7D6E7 /* MyEasyFilter.xcdatamodeld in Sources */,
+				18011B7C2432903E007FC3B2 /* TemplateMainMenuButton.swift in Sources */,
 				182938FD23F7E9CD0001DFF1 /* TemplateContentView.swift in Sources */,
+				18011B7824220881007FC3B2 /* ParameterTableViewCell.swift in Sources */,
 				18011B6A2410E03F007FC3B2 /* MyNotificationCenter.swift in Sources */,
 				1829390023F94BC30001DFF1 /* CategoryCollectionViewCell.swift in Sources */,
 				18015F1B2409717100C039CE /* GridView.swift in Sources */,

@@ -17,37 +17,7 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DOT-Le-nD6">
-                                <rect key="frame" x="264" y="712" width="60" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="TxV-7w-Na5"/>
-                                    <constraint firstAttribute="height" constant="60" id="nFU-ma-SOS"/>
-                                </constraints>
-                                <state key="normal" image="camera"/>
-                                <connections>
-                                    <action selector="openCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jBe-R8-3lI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nqf-Fp-9SH">
-                                <rect key="frame" x="90" y="712" width="60" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="SCQ-IB-fdS"/>
-                                    <constraint firstAttribute="width" constant="60" id="tgK-vh-7df"/>
-                                </constraints>
-                                <state key="normal" image="gallery"/>
-                                <connections>
-                                    <action selector="openAlbum:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qgk-YQ-HsF"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nqf-Fp-9SH" secondAttribute="bottom" constant="90" id="147-ub-LUe"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DOT-Le-nD6" secondAttribute="bottom" constant="90" id="Kcx-nt-vWA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DOT-Le-nD6" secondAttribute="trailing" constant="90" id="xUP-eT-8ud"/>
-                            <constraint firstItem="nqf-Fp-9SH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="yOv-Ql-64E"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -55,8 +25,4 @@
             </objects>
         </scene>
     </scenes>
-    <resources>
-        <image name="camera" width="72" height="72"/>
-        <image name="gallery" width="72" height="72"/>
-    </resources>
 </document>

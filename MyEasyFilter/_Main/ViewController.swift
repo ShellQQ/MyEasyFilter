@@ -11,28 +11,28 @@ import AVFoundation
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    @IBAction func openAlbum(_ sender: UIButton) {
-        let imagePicker = UIImagePickerController()
+    private lazy var openAlbumButton: TemplateMainMenuButton = {
+        let view = TemplateMainMenuButton(backImageName: "gallery_button", iconImageName: "gallery", text: "Album", direction: "left")
+
+        view.isUserInteractionEnabled = true
         
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.delegate = self
+        let tap = UILongPressGestureRecognizer(target:self, action:#selector(ViewController.openAlbum(_:)))
+        tap.minimumPressDuration = 0
+        view.addGestureRecognizer(tap)
         
-        present(imagePicker, animated: true, completion: nil)
-    }
+        return view
+    }()
     
-    @IBAction func openCamera(_ sender: UIButton) {
-        // 檢查裝置是否具有拍照功能
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            let imagePicker = UIImagePickerController()
-            
-            // 設定相片來源為相機
-            imagePicker.sourceType = .camera
-            imagePicker.delegate = self
-            
-            // 開啟拍照介面
-            show(imagePicker, sender: self)
-        }
-    }
+    private lazy var openCameraButton: TemplateMainMenuButton = {
+        let view = TemplateMainMenuButton(backImageName: "camera_button", iconImageName: "camera", text: "Camera", direction: "left")
+        view.isUserInteractionEnabled = true
+        
+        let tap = UILongPressGestureRecognizer(target:self, action:#selector(ViewController.openCamera(_:)))
+        tap.minimumPressDuration = 0
+        view.addGestureRecognizer(tap)
+        
+        return view
+    }()
     
     // 將 Status Bar 修改為 light
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -41,6 +41,22 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.addGradientLayer(frame: UIScreen.main.bounds)
+        
+        let buttonStackView = UIStackView(arrangedSubviews: [openAlbumButton, openCameraButton])
+        
+        buttonStackView.axis = .vertical
+        buttonStackView.distribution = .fillEqually
+        buttonStackView.spacing = 20
+
+        view.addSubview(buttonStackView)
+        
+        buttonStackView.translatesAutoresizingMaskIntoConstraints = false
+        buttonStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+        buttonStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        buttonStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        buttonStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
         
         // 主畫面加上漸層背景圖層
 //        view.addGradientLayer(frame: view.frame)
@@ -81,6 +97,65 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             // 顯示下一個畫面的兩種方式
             //navigationController?.pushViewController(nextController, animated: true)
             self.present(nextController, animated: true, completion: nil)
+        }
+    }
+
+    @objc func openCamera(_ recognizer: UITapGestureRecognizer) {
+        let view = recognizer.view as! TemplateMainMenuButton
+        
+        if recognizer.state == .began {
+            view.isHighlight(true)
+            return
+        }
+        
+        if recognizer.state == .changed {
+            return
+        }
+        
+        if recognizer.state == .possible || recognizer.state == .recognized {
+            
+            view.isHighlight(false)
+            
+            // 檢查裝置是否具有拍照功能
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                let imagePicker = UIImagePickerController()
+                
+                // 設定相片來源為相機
+                imagePicker.sourceType = .camera
+                imagePicker.delegate = self
+                
+                // 開啟拍照介面
+                show(imagePicker, sender: self)
+            }
+            
+            return
+        }
+    }
+    
+    @objc func openAlbum(_ recognizer: UITapGestureRecognizer) {
+        let view = recognizer.view as! TemplateMainMenuButton
+        
+        if recognizer.state == .began {
+            view.isHighlight(true)
+            return
+        }
+        
+        if recognizer.state == .changed {
+            return
+        }
+        
+        if recognizer.state == .possible || recognizer.state == .recognized {
+            
+            view.isHighlight(false)
+            
+            let imagePicker = UIImagePickerController()
+            
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.delegate = self
+            
+            present(imagePicker, animated: true, completion: nil)
+            
+            return
         }
     }
     

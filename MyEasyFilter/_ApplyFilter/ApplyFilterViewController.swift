@@ -202,15 +202,11 @@ extension ApplyFilterViewController: ChangeViewDelegate {
     func goInfoPage() {
         let nextStoryboard = UIStoryboard(name: "Info", bundle: nil)
         if let nextController = nextStoryboard.instantiateViewController(withIdentifier: "Info") as? InfoViewController {
+            nextController.filterName = FilterData.data.selectedFilter
             self.present(nextController, animated: true, completion: nil)
         }
     }
 }
-
-
-
-
-
 
 // -----------------------------------------------------------------------------------
 // Protocol

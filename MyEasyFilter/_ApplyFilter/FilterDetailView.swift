@@ -456,6 +456,7 @@ extension FilterDetailView: UICollectionViewDelegate, UICollectionViewDataSource
             didSelectFilterItem(filterName: filterName)
             
             popUpAttributeView(isPop: true)
+            popUpChangeValueView(isPop: false)
             
             if FilterData.data.isSave(filterName: filterName) {
                 changeDisplay(to: "collectionView")

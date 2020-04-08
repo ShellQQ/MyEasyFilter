@@ -31,7 +31,7 @@ class ApplyImageView: UIView {
             image = image.imageResize(newSize: CGSize(width: size.width / 12, height: size.height / 12))
             outputImage = image
             centerView.image = outputImage
-            print("output image size:\(outputImage.size)")
+            //print("output image size:\(outputImage.size)")
         }
     }
     
@@ -209,9 +209,10 @@ class ApplyImageView: UIView {
 // -----------------------------------------------------------------------------------
 extension ApplyImageView {
     @objc func changeFilterValue(notification: Notification) {
-        print("notification call")
+        
         outputImage = FilterData.data.applyAllFilters(image: image)
         centerView.image = outputImage
+    
         //guard let info = notification.userInfo else { return }
         //guard let info = NSNumberInfo(notification: notification) else { return }
         //guard let info = InputEvent(notification: notification) else { return }

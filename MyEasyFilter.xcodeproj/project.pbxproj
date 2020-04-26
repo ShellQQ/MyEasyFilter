@@ -29,7 +29,6 @@
 		1806EBED23EB23BC00F7D6E7 /* ApplyFilter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1806EBEC23EB23BC00F7D6E7 /* ApplyFilter.storyboard */; };
 		1806EBEF23EB247700F7D6E7 /* ApplyFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1806EBEE23EB247700F7D6E7 /* ApplyFilterViewController.swift */; };
 		1806EBF223EB2C3C00F7D6E7 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1806EBF123EB2C3C00F7D6E7 /* UIImage+Ext.swift */; };
-		1806EBF423EC293000F7D6E7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1806EBF323EC293000F7D6E7 /* Default-568h@2x.png */; };
 		1806EBF623EC7B3200F7D6E7 /* ApplyImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1806EBF523EC7B3200F7D6E7 /* ApplyImageView.swift */; };
 		1806EBF823EC7CD500F7D6E7 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1806EBF723EC7CD500F7D6E7 /* UIView+Ext.swift */; };
 		1806EBFA23EC7D8B00F7D6E7 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1806EBF923EC7D8B00F7D6E7 /* UIColor+Ext.swift */; };
@@ -74,7 +73,6 @@
 		1806EBEC23EB23BC00F7D6E7 /* ApplyFilter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ApplyFilter.storyboard; sourceTree = "<group>"; };
 		1806EBEE23EB247700F7D6E7 /* ApplyFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyFilterViewController.swift; sourceTree = "<group>"; };
 		1806EBF123EB2C3C00F7D6E7 /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
-		1806EBF323EC293000F7D6E7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		1806EBF523EC7B3200F7D6E7 /* ApplyImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyImageView.swift; sourceTree = "<group>"; };
 		1806EBF723EC7CD500F7D6E7 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		1806EBF923EC7D8B00F7D6E7 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
@@ -155,7 +153,6 @@
 		1806EBC523EB17BC00F7D6E7 = {
 			isa = PBXGroup;
 			children = (
-				1806EBF323EC293000F7D6E7 /* Default-568h@2x.png */,
 				1806EBDD23EB17BF00F7D6E7 /* LaunchScreen.storyboard */,
 				1806EBD023EB17BC00F7D6E7 /* MyEasyFilter */,
 				1806EBCF23EB17BC00F7D6E7 /* Products */,
@@ -353,7 +350,6 @@
 				182938F923F6F7050001DFF1 /* Publish.storyboard in Resources */,
 				1829390723F94C310001DFF1 /* FilterCollectionViewCell.xib in Resources */,
 				1829390123F94BC30001DFF1 /* CategoryCollectionViewCell.xib in Resources */,
-				1806EBF423EC293000F7D6E7 /* Default-568h@2x.png in Resources */,
 				1806EBD723EB17BC00F7D6E7 /* Main.storyboard in Resources */,
 				182938F523F6F5700001DFF1 /* ShowSelectFilter.storyboard in Resources */,
 				1829390B23F94C430001DFF1 /* AttributeCollectionViewCell.xib in Resources */,

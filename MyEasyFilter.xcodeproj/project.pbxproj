@@ -150,9 +150,17 @@
 			path = NSNumber;
 			sourceTree = "<group>";
 		};
+		1801C2C3245556510009F351 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		1806EBC523EB17BC00F7D6E7 = {
 			isa = PBXGroup;
 			children = (
+				1801C2C3245556510009F351 /* New Group */,
 				1806EBDD23EB17BF00F7D6E7 /* LaunchScreen.storyboard */,
 				1806EBD023EB17BC00F7D6E7 /* MyEasyFilter */,
 				1806EBCF23EB17BC00F7D6E7 /* Products */,

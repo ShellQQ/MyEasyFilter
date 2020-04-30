@@ -39,6 +39,32 @@
 
 ### 以下列出部分濾鏡效果
 
+<img src="image/DemoImage/IMG_0259.jpeg" width="30%" height="30%" /><img src="image/DemoImage/IMG_0260.jpeg" width="30%" height="30%" /><img src="image/DemoImage/IMG_0262.jpeg" width="30%" height="30%" />
+  <img src="image/DemoImage/IMG_0263.jpeg" width="30%" height="30%" />
+  <img src="image/DemoImage/IMG_0265.jpeg" width="30%" height="30%" />
+  <img src="image/DemoImage/IMG_0266.jpeg" width="30%" height="30%" />
+  <img src="image/DemoImage/IMG_0267.jpeg" width="30%" height="30%" />
+  <img src="image/DemoImage/IMG_0268.jpeg" width="30%" height="30%" />
+  <img src="image/DemoImage/IMG_0269.jpeg" width="30%" height="30%" />
+  <img src="image/DemoImage/IMG_0270.jpeg" width="30%" height="30%" />
+  <img src="image/DemoImage/IMG_0271.jpeg" width="30%" height="30%" />
+  <img src="image/DemoImage/IMG_0272.jpeg" width="30%" height="30%" />
+  <img src="image/DemoImage/IMG_0273.jpeg" width="30%" height="30%" />
+  <img src="image/DemoImage/IMG_0274.jpeg" width="30%" height="30%" />
+  <img src="image/DemoImage/IMG_0275.jpeg" width="30%" height="30%" />
+  <img src="image/DemoImage/IMG_0276.jpeg" width="30%" height="30%" />
+  <img src="image/DemoImage/IMG_0277.jpeg" width="30%" height="30%" />
+  <img src="image/DemoImage/IMG_0278.jpeg" width="30%" height="30%" />
+  <img src="image/DemoImage/IMG_0279.jpeg" width="30%" height="30%" />
+  <img src="image/DemoImage/IMG_0280.jpeg" width="30%" height="30%" />
+  <img src="image/DemoImage/IMG_0281.jpeg" width="30%" height="30%" />
+  <img src="image/DemoImage/IMG_0282.jpeg" width="30%" height="30%" />
+  <img src="image/DemoImage/IMG_0283.jpeg" width="30%" height="30%" />
+  <img src="image/DemoImage/IMG_0286.jpeg" width="30%" height="30%" />
+  <img src="image/DemoImage/IMG_0287.jpeg" width="30%" height="30%" />
+  <img src="image/DemoImage/IMG_0288.jpeg" width="30%" height="30%" />
+  <img src="image/DemoImage/IMG_0289.jpeg" width="30%" height="30%" />
+
 ### Swift Core Image 濾鏡分類
 以效果分類可以分為14種
 

@@ -3,6 +3,8 @@
 
 ##### A simple app that can easy apply Core Image Filters on your photo and can easy adjust filter parameters
 
+##### Swift Core Image是一個很強大的框架，內建很多強大的濾鏡效果，且可通過濾鏡鏈將各種效果疊加，創造自訂濾鏡效果。由於使用程式調整參數並不直覺，於是就有了開發此款工具APP的想法，除了方便程式設計師在自訂濾鏡效果時能預覽濾鏡效果及查看調整後的濾鏡參數，未來也預計加入各種自訂濾鏡效果，供程式設計師查看濾鏡參數，也可提供一般使用者使用後，發佈儲存添加濾鏡後的照片。
+
 ### APP功能說明：
 * 選擇使用相簿照片，或使用相機拍照，濾鏡將會套用在所選擇的圖片上
   
@@ -65,8 +67,9 @@
   <img src="image/DemoImage/IMG_0288.jpeg" width="30%" height="30%" />
   <img src="image/DemoImage/IMG_0289.jpeg" width="30%" height="30%" />
 
-### Swift Core Image 濾鏡分類
-以效果分類可以分為14種
+### Swift Core Image CIFilter介紹
+
+####以效果分類可以分為14種
 
 * **kCICategoryBlur**：模糊；如散景模糊、方塊模糊、深度模糊效果、光盤模糊、高斯模糊、蒙版可變模糊、中值過濾器、形態梯度、最大形態、最小形態、
 形態矩形最大、形態矩形最小、運動模糊、降噪、變焦模糊
@@ -110,7 +113,7 @@
 * **CICategoryTransition**：過渡效過：如手風琴折疊過渡、條形滑動過渡、複印機過渡、通過遮罩過渡分解、消除過渡、閃光過渡、Mod過渡、頁面捲曲過渡、
 帶有陰影過渡的頁面捲曲、波紋過渡、滑動過渡
 
-#### 若按使用場景分類，可分為5類:
+#### 按使用場景分類可分為5類:
 * **kCICategoryStillImage**：用於靜態影象
 * **kCICategoryVideo**：用於視訊
 * **kCICategoryInterlaced**：用於交錯影象
